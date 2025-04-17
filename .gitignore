@@ -35,6 +35,8 @@ docker-compose.local.yml
 *.local.yml
 **/data/
 **/pgdata/
+acme.sh
+nginx
 
 # Vite / React / Tailwind
 .vscode/
