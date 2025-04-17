@@ -1,11 +1,11 @@
-version: '3.9'
-
 services:
   frontend:
     build:
       context: ./frontend
     ports:
       - "3000:80"
+    env_file:
+      - .env
     depends_on:
       - backend
     networks:
@@ -14,7 +14,7 @@ services:
   backend:
     build:
       context: ./backend
-    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    command: gunicorn --bind 0.0.0.0:8000 app:app
     volumes:
       - ./backend:/app
     ports:
@@ -51,6 +51,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    env_file:
+      - .env
     networks:
       - tfnet
 

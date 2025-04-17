@@ -39,8 +39,6 @@ docker-compose.local.yml
 # Vite / React / Tailwind
 .vscode/
 *.css.d.ts
-tailwind.config.js
-postcss.config.js
 
 # OS
 .DS_Store
