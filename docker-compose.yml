@@ -1,7 +1,40 @@
 services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - tfnet
+    restart: always
+
+  letsencrypt:
+    image: nginxproxy/acme-companion
+    container_name: nginx-proxy-acme
+    environment:
+      - DEFAULT_EMAIL=your-email@example.com
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/acme.sh
+    networks:
+      - tfnet
+    restart: always
+
   frontend:
     build:
       context: ./frontend
+    environment:
+      - VIRTUAL_HOST=taskforce121milsim.com
+      - LETSENCRYPT_HOST=taskforce121milsim.com
+      - LETSENCRYPT_EMAIL=unikmey@gmail.com
     ports:
       - "3000:80"
     env_file:
