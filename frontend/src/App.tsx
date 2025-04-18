@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import unitLogo from './assets/unit.png'
+import unitBg from './assets/bg.png'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div
+      className="w-screen h-screen bg-cover bg-center flex flex-col items-center justify-center text-white text-center"
+      style={{ backgroundImage: `url(${unitBg})` }}
+    >
+      <a
+        href="https://discord.gg/taskforce121"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex justify-center"
+      >
+        <img src={unitLogo} alt="Task Force Logo" className="w-144 max-w-[50%] mb-6" />
+      </a>
+      <h1 className="text-4xl font-bold">Task Force 121</h1>
+      <h2 className="text-2xl mt-2">Under Construction</h2>
+    </div>
   )
 }
 
