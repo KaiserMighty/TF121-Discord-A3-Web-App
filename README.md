@@ -1,5 +1,5 @@
 # Task Force 121 Web Application
-Task Force 121 ArmA 3 MilSim Discord Bot and supporting Web Dashboard
+Task Force 121 ArmA 3 MilSim Discord/A3 interface and supporting Web Dashboard
 
 ### SSL Certification
 ```
